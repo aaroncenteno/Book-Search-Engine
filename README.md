@@ -12,6 +12,8 @@ This weeks challenge was to take a application that used express API routes and 
 * [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
+* [Technologies Used](#technologies-used)
+* [Bugs & Enhancements](#bugs-&-enhancements)
 * [Links](#links)
 * [Questions](#questions)
 
@@ -40,6 +42,10 @@ To access this application simply navigate to https://desolate-plains-77425.hero
 * CSS
 * GraphQL
 * Apollo Server
+
+## Bugs & Enhancements 
+
+One of the bugs or rather functionalities of the code that I tried to enhance was the remove book. When the button to remove a book is clicked the page remains the same and must be reloaded to actually see the result. I wanted to have the cache update when the button is clicked, but I could not seem to figure out how to do that. When I used the update cache with $pull it would pull everything in the savedBooks object and leave the first book. Then on reloading the remaining books would populate, with the removed book being gone. This was close to what I wanted to happen but not completely. Please see the commented out code on lines 16-35 in "client/src/pages/SavedBook.js". If there is any reccommendations, please contact me. 
 
 ## Screenshots
 

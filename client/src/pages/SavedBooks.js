@@ -12,7 +12,27 @@ import { removeBookId } from '../utils/localStorage';
 const SavedBooks = () => {
   // const [userData, setUserData] = useState({});
   const { loading, data } = useQuery(GET_ME);
-  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const [removeBook, { error }] = useMutation(REMOVE_BOOK)
+    // , {
+    // remove(cache, { data: { removeBook: {bookId} } }) {
+    //   try {
+    //     const { savedBooks } = cache.readQuery({ query: GET_ME });
+
+    //     cache.writeQuery({
+    //       query: GET_ME,
+    //       data: { savedBooks: [removeBook, [{$pull: {savedBooks: {bookId}}}]] }
+    //     });
+    //   } catch (e){
+    //     console.log(e)
+    //   }
+
+    //   const { me } = cache.readQuery({ query: GET_ME });
+    //   cache.writeQuery({
+    //     query: GET_ME,
+    //     data: { me: {...me, savedBooks: [{$pull: {savedBooks: {bookId} } }] } },
+    //   });
+    // }
+  // });
 
   const userData = data?.me || {};
 
