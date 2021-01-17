@@ -3,7 +3,7 @@ const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-    Query = {
+    Query: {
         me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({
@@ -42,14 +42,15 @@ const resolvers = {
             return { token, user };
         },
 
-        saveBook: async (parent, { bookData }, context) => {
+        saveBook: async (parent, bookData , context) => {
             if(context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $push: { savedBooks:  bookData } },
                     { new: true }
                 );
-
+                
+                console.log(updatedUser)
                 return updatedUser
             }
 
